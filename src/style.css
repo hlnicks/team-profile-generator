@@ -1,3 +1,17 @@
 header {
     font-family: 'Lora', serif;
+    font-size: 60px;
+    padding: 15px;
+}
+
+main {
+    padding-top: 50px;
+    margin: 40px;
+}
+.card-header {
+    font-family: 'Lora', serif;
+}
+
+.card-body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }

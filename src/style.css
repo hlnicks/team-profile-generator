@@ -1,6 +1,6 @@
 header {
     font-family: 'Lora', serif;
-    font-size: 60px;
+    font-size: 65px;
     padding: 15px;
 }
 
@@ -8,9 +8,9 @@ main {
     padding-top: 50px;
     margin: 40px;
 }
+
 .card-header {
     font-family: 'Lora', serif;
-    line-height: 1px;
 }
 
 .card-body {

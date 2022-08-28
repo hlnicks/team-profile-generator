@@ -10,8 +10,13 @@ main {
 }
 .card-header {
     font-family: 'Lora', serif;
+    line-height: 1px;
 }
 
 .card-body {
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.card-text {
+    font-size: 15px;
 }

@@ -1,16 +1,16 @@
 const inquirer = import("inquirer");
 
 // questions prompt
-promptUser = function() {
-    inquirer.prompt(
-        {
-            type: "list",
-            name: "employee",
-            message: "Which type of employee would you like to create?",
-            choices: ["Engineer", "Intern", "Manager", "None"]
-        }
-    )
-}
+// promptUser = function() {
+//     inquirer.prompt(
+//         {
+//             type: "list",
+//             name: "employee",
+//             message: "Which type of employee would you like to create?",
+//             choices: ["Engineer", "Intern", "Manager", "None"]
+//         }
+//     )
+// }
 
 // questions
 // will need to validate input. return true; and return false;

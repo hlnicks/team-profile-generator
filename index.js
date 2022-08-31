@@ -7,9 +7,9 @@ const fs = require("fs");
 
 function myEmployees() {
     this.employee = [];
-    this.manager;
     this.engineer;
     this.intern;
+    this.manager;
 }
 
 
@@ -36,9 +36,6 @@ myEmployees.prototype.promptUser = function() {
         }
     })
 };
-
-
-new myEmployees().promptUser();
 
 
 const engineerQuestions = [
@@ -97,16 +94,6 @@ const engineerQuestions = [
 ];
 
 
-myEmployees.prototype.promptEngineer = function() {
-    inquirer.prompt(engineerQuestions)
-    .then(({ name, id, email, username }) => {
-        this.engineer = new Engineer (name, id, email, username);
-        this.employee.push(this.engineer);
-        this.promptUser();
-    })
-};
-
-
 const internQuestions = [
     {
         type: "input",
@@ -161,16 +148,6 @@ const internQuestions = [
         }
     }
 ];
-
-
-myEmployees.prototype.promptIntern = function() {
-    inquirer.prompt(internQuestions)
-    .then(({ name, id, email, school}) => {
-        this.intern = new Intern(name, id, email, school);
-        this.employee.push(this.intern);
-        this.promptUser();
-    })
-};
 
 
 const managerQuestions = [
@@ -233,24 +210,46 @@ const managerQuestions = [
 ];
 
 
+myEmployees.prototype.promptEngineer = function() {
+    inquirer.prompt(engineerQuestions)
+    .then(({ name, id, email, username }) => {
+        this.engineer = new Engineer (name, id, email, username);
+        this.employee.push(this.engineer);
+        this.promptUser();
+    })
+};
+
+
+myEmployees.prototype.promptIntern = function() {
+    inquirer.prompt(internQuestions)
+    .then(({ name, id, email, school}) => {
+        this.intern = new Intern(name, id, email, school);
+        this.employee.push(this.intern);
+        this.promptUser();
+    })
+};
+
+
 myEmployees.prototype.promptManager = function() {
     inquirer.prompt(managerQuestions)
     .then(({ name, id, email, office}) => {
-        this.manager = new Intern(name, id, email, office);
+        this.manager = new Manager(name, id, email, office);
         this.employee.push(this.manager);
         this.promptUser();
     })
 };
 
+
 const writeFile = pageHTML => {
-        fs.writeFile('./dist/index.html', pageHTML, err=>{})
-  };
-  
+    fs.writeFile('./dist/index.html', pageHTML, err=>{})
+};
+
+
 const copyFile=()=>{
     fs.copyFile('./dist/style.css', './dist/index.html', err => {})
-    };
+};
 
 
+new myEmployees().promptUser();
 
-  
 module.exports= {writeFile, copyFile};

@@ -1,3 +1,7 @@
+body {
+    background-color: #f8edd2;
+}
+
 header {
     font-family: 'Lora', serif;
     font-size: 65px;
@@ -19,4 +23,16 @@ main {
 
 .card-text {
     font-size: 1px;
+}
+
+#engineer {
+    background-color: #e76f51;
+}
+
+#intern {
+    background-color: #e9c46a;
+}
+
+#manager {
+    background-color: #2a9d8f;
 }

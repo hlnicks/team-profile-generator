@@ -6,7 +6,7 @@ function createCard (employeeList) {
         if (position === "Engineer") {
             cardHtml += `
             <div class="card border-dark" style="width: 18rem;">
-                <div class="card-header text-center" style="background-color:">
+                <div id="engineer" class="card-header text-center"">
                     <h3 class="card-title">${employee.name}</h3>
                     <h5 class="card-subtitle">Engineer</h5>
                     <i class="h1 lh-lg bi bi-terminal-fill"></i></p>
@@ -20,7 +20,7 @@ function createCard (employeeList) {
         } else if (position === "Intern") {
             cardHtml += `
             <div class="card border-dark" style="width: 18rem;">
-                <div class="card-header text-center" style="background-color:">
+                <div id="intern" class="card-header text-center"">
                     <h3 class="card-title">${employee.name}</h3>
                     <h5 class="card-subtitle">Intern</h5>
                     <i class="h1 lh-lg bi bi-mortarboard-fill"></i>
@@ -34,7 +34,7 @@ function createCard (employeeList) {
         } else {
             cardHtml += `
             <div class="card border-dark" style="width: 18rem;">
-                <div class="card-header text-center" style="background-color:">
+                <div id="manager" class="card-header text-center" style="background-color:">
                     <h3 class="card-title">${employee.name}</h3>
                     <h5 class="card-subtitle">Manager</h5>
                     <i class="h1 lh-lg bi bi-clipboard2-check-fill"></i></p>

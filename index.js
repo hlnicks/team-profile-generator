@@ -1,19 +1,11 @@
-const inquirer = import("inquirer");
+const inquirer = require("inquirer");
+// const Engineer = require("./lib/Engineer");
+// const Intern = require ("./lib/Intern");
+// const Manager = require("./lib/Manager");
+// const createCard = require("./src/page-template");
+// const {writeFile, copyFile} = require("./src/page-template");
 
-// questions prompt
-// promptUser = function() {
-//     inquirer.prompt(
-//         {
-//             type: "list",
-//             name: "employee",
-//             message: "Which type of employee would you like to create?",
-//             choices: ["Engineer", "Intern", "Manager", "None"]
-//         }
-//     )
-// }
 
-// questions
-// will need to validate input. return true; and return false;
 const engineerQuestions = [
     {
         type: "input",
@@ -36,6 +28,8 @@ const engineerQuestions = [
         message: "What is the engineer's Github Username?"
     }
 ];
+console.log(engineerQuestions);
+
 
 const internQuestions = [
     {
@@ -59,6 +53,8 @@ const internQuestions = [
         message: "What is the intern's school?"
     }
 ];
+console.log(internQuestions);
+
 
 const managerQuestions = [
     {
@@ -82,3 +78,18 @@ const managerQuestions = [
         message: "What is the manager's office number?"
     }
 ];
+console.log(managerQuestions);
+
+
+
+// questions prompt
+promptUser = function() {
+    inquirer.prompt(
+        {
+            type: "list",
+            name: "employee",
+            message: "Which type of employee would you like to create?",
+            choices: ["Engineer", "Intern", "Manager", "None"]
+        }
+    )
+};

@@ -5,7 +5,6 @@ const inquirer = require("inquirer");
 // const createCard = require("./src/page-template");
 // const {writeFile, copyFile} = require("./src/page-template");
 
-
 function myEmployees() {
     this.employee = [];
     this.manager;
@@ -235,4 +234,3 @@ myEmployees.prototype.promptManager = function() {
         this.promptUser();
     })
 };
-

@@ -1,11 +1,9 @@
-body {
-    background-color: #f8edd2;
-}
-
 header {
     font-family: 'Lora', serif;
-    font-size: 65px;
+    font-size: 70px;
+    font-weight: bold;
     padding: 15px;
+    background-image: linear-gradient(to right, #2a9d8f , #e9c46a, #e76f51 );
 }
 
 main {
@@ -19,20 +17,49 @@ main {
 
 .card-body {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
 }
 
-.card-text {
-    font-size: 1px;
+.info {
+    font-weight: bolder;
+    padding-right: 5px;
 }
 
-#engineer {
+#engineer .card-header {
     background-color: #e76f51;
 }
 
-#intern {
+#engineer a {
+    color: #e76f51;
+    font-weight: 600;
+}
+
+#engineer a:hover{
+    color:#b85840;
+}
+
+#intern .card-header {
     background-color: #e9c46a;
 }
 
-#manager {
+#intern a {
+    color: #e9c46a;
+    font-weight: 600;
+}
+
+#intern a:hover{
+    color: #D1B05F;
+}
+
+#manager .card-header {
     background-color: #2a9d8f;
+}
+
+#manager a {
+    color:#2a9d8f;
+    font-weight: 600;
+}
+
+#manager a:hover {
+    color: #258d80;
 }

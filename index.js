@@ -5,6 +5,7 @@ const inquirer = require("inquirer");
 // const createCard = require("./src/page-template");
 // const {writeFile, copyFile} = require("./src/page-template");
 
+
 function myEmployees() {
     this.employee = [];
     this.manager;
@@ -21,34 +22,55 @@ myEmployees.prototype.promptUser = function() {
             choices: ["Engineer", "Intern", "Manager", "None"]
         }
     )
+    .then(({ employee }) => {
+        if (employee === "Engineer"){
+            this.promptEngineer();
+        } else if (employee === "Intern"){
+            this.promptIntern();
+        } else if (employee === "Manager"){
+            this.promptManager();
+        } else {
+            // write & copy file
+        }
+    })
 };
 
 new myEmployees().promptUser();
 
+const engineerQuestions = [
+    {
+        type: "input",
+        name: "name",
+        message: "What is the engineer's name?",
+        validate: nameInpute => {
+            if (nameInput){
+                return true;
+            } else {
+                console.log("Enter Engineer's Name");
+                return false;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "What is the engineer's ID?"
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is the engineer's email address?"
+    },
+    {
+        type: "input",
+        name: "username",
+        message: "What is the engineer's Github Username?"
+    }
+];
 
-// const engineerQuestions = [
-//     {
-//         type: "input",
-//         name: "name",
-//         message: "What is the engineer's name?"
-//     },
-//     {
-//         type: "input",
-//         name: "id",
-//         message: "What is the engineer's ID?"
-//     },
-//     {
-//         type: "input",
-//         name: "email",
-//         message: "What is the engineer's email address?"
-//     },
-//     {
-//         type: "input",
-//         name: "username",
-//         message: "What is the engineer's Github Username?"
-//     }
-// ];
-// console.log(engineerQuestions);
+myEmployees.prototype.promptEngineer = function() {
+    inquirer.prompt(engineerQuestions)
+};
 
 
 // const internQuestions = [
@@ -73,7 +95,6 @@ new myEmployees().promptUser();
 //         message: "What is the intern's school?"
 //     }
 // ];
-// console.log(internQuestions);
 
 
 // const managerQuestions = [
@@ -98,4 +119,6 @@ new myEmployees().promptUser();
 //         message: "What is the manager's office number?"
 //     }
 // ];
-// console.log(managerQuestions);
+
+
+

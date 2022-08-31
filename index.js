@@ -32,7 +32,7 @@ myEmployees.prototype.promptUser = function() {
         } else {
             writeFile(createCard(this.employee));
             copyFile();
-            console.log("ready");
+            console.log("Your file has been created");
         }
     })
 };
@@ -243,37 +243,14 @@ myEmployees.prototype.promptManager = function() {
 };
 
 const writeFile = pageHTML => {
-    return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/index.html', pageHTML, err=>{
-            //if there's an error, reject the Promise and send the error to the catch method
-            if (err){
-                reject(err);
-                return;
-            }
-            //if resolves, send successful data to then method
-            resolve({
-                ok: true,
-                message:"File created!"
-            });
-        });
-    });
+        fs.writeFile('./dist/index.html', pageHTML, err=>{})
   };
   
-  const copyFile=()=>{
-    return new Promise((resolve, reject)=>{
-        fs.copyFile('./dist/style.css', './dist/index.html', err => {
-            //if there's an error, reject the Promise and send the error to the catch method
-            if (err){
-                reject(err);
-                return;
-            }
-            //if resolves, send successful data to then method
-            resolve({
-                ok: true,
-                message:"Stylesheet created!"
-            });
-        });
-    });
-  };
+const copyFile=()=>{
+    fs.copyFile('./dist/style.css', './dist/index.html', err => {})
+    };
+
+
+
   
 module.exports= {writeFile, copyFile};

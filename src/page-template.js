@@ -1,51 +1,51 @@
 function createCard (employeeList) {
-    let card = ""
+    let cardHtml = ""
     for (var i =0; i < employeeList.length; i++) {
         let employee = employeeList[i];
         let position = employee.getPosition();
         if (position === "Engineer") {
-            card += `
-            <div class="card border-dark " style="width: 18rem;">
+            cardHtml += `
+            <div class="card border-dark" style="width: 18rem;">
                 <div class="card-header text-center" style="background-color:">
-                    <h3 id="name" class="card-title">${employee.name}</h3>
-                    <h5 id="title" class="card-subtitle">Engineer</h5>
-                    <p id="img" class= "text-center"><i class="h1 lh-lg bi bi-terminal-fill"></i></p>
+                    <h3 class="card-title">${employee.name}</h3>
+                    <h5 class="card-subtitle">Engineer</h5>
+                    <i class="h1 lh-lg bi bi-terminal-fill"></i></p>
                 </div>
                 <div class="card-body">
-                    <p id="id" class="card-text">ID: ${employee.id} </p>
-                    <p id="email" class="card-text">Email: <a href="mailto:${employee.email}" class="text-decoration-none" target="_blank">${employee.email}</a></p>
-                    <p id="info" class="card-text">Github: <a href="https://github.com/${employee.username}" target="_blank">${employee.username}</a></p>
+                    <p>ID: ${employee.id} </p>
+                    <p>Email: <a href="mailto:${employee.email}" class="text-decoration-none" target="_blank">${employee.email}</a></p>
+                    <p>Github: <a href="https://github.com/${employee.username}" target="_blank">${employee.username}</a></p>
                 </div>
             </div>`
-        } else if (role === "Intern") {
-            card += `
-            <div class="card border-dark " style="width: 18rem;">
+        } else if (position === "Intern") {
+            cardHtml += `
+            <div class="card border-dark" style="width: 18rem;">
                 <div class="card-header text-center" style="background-color:">
-                    <h3 id="name" class="card-title">${employee.name}</h3>
-                    <h5 id="title" class="card-subtitle">Engineer</h5>
-                    <p id="img" class= "text-center"><i class="h1 lh-lg bi bi-terminal-fill"></i></p>
+                    <h3 class="card-title">${employee.name}</h3>
+                    <h5 class="card-subtitle">Intern</h5>
+                    <i class="h1 lh-lg bi bi-mortarboard-fill"></i>
                 </div>
                 <div class="card-body">
-                    <p id="id" class="card-text">ID: ${employee.id} </p>
-                    <p id="email" class="card-text">Email: <a href="mailto:${employee.email}" class="text-decoration-none" target="_blank">${employee.email}</a></p>
-                    <p id="info" class="card-text">School: ${employee.school}</p>
+                <p>ID: ${employee.id} </p>
+                <p>Email: <a href="mailto:${employee.email}" class="text-decoration-none" target="_blank">${employee.email}</a></p>
+                <p>School: ${employee.school}</p>
                 </div>
             </div>`
         } else {
-            card += `
-            <div class="card border-dark " style="width: 18rem;">
+            cardHtml += `
+            <div class="card border-dark" style="width: 18rem;">
                 <div class="card-header text-center" style="background-color:">
-                    <h3 id="name" class="card-title">${employee.name}</h3>
-                    <h5 id="title" class="card-subtitle">Engineer</h5>
-                    <p id="img" class= "text-center"><i class="h1 lh-lg bi bi-terminal-fill"></i></p>
+                    <h3 class="card-title">${employee.name}</h3>
+                    <h5 class="card-subtitle">Manager</h5>
+                    <i class="h1 lh-lg bi bi-clipboard2-check-fill"></i></p>
                 </div>
                 <div class="card-body">
-                    <p id="id" class="card-text">ID: ${employee.id} </p>
-                    <p id="email" class="card-text">Email: <a href="mailto:${employee.email}" class="text-decoration-none" target="_blank">${employee.email}</a></p>
-                    <p id="info" class="card-text">Office Number: ${employee.office}</p>
+                    <p>ID: ${employee.id} </p>
+                    <p>Email: <a href="mailto:${employee.email}" class="text-decoration-none" target="_blank">${employee.email}</a></p>
+                    <p>Office Number: ${employee.office}</p>
                 </div>
             </div>`
-        }
+        };
     }
     let pageHTML = `
     <!DOCTYPE html>
@@ -67,10 +67,11 @@ function createCard (employeeList) {
             My Team
         </header>
         <main class="d-flex justify-content-around">
-            ${card}
+            ${cardHtml}
         </main>
     </body>
-    </html>`;
+    </html>`
+    
     return pageHTML;
 };
 

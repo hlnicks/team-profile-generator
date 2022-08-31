@@ -1,9 +1,9 @@
 const inquirer = require("inquirer");
-// const Engineer = require("./lib/Engineer");
-// const Intern = require ("./lib/Intern");
-// const Manager = require("./lib/Manager");
-// const createCard = require("./src/page-template");
-// const {writeFile, copyFile} = require("./src/page-template");
+const Engineer = require("./lib/Engineer");
+const Intern = require ("./lib/Intern");
+const Manager = require("./lib/Manager");
+const createCard = require("./src/page-template");
+const fs = require("fs");
 
 function myEmployees() {
     this.employee = [];
@@ -12,13 +12,14 @@ function myEmployees() {
     this.intern;
 }
 
+
 myEmployees.prototype.promptUser = function() {
     inquirer.prompt(
         {
             type: "list",
             name: "employee",
             message: "Which type of employee would you like to create?",
-            choices: ["Engineer", "Intern", "Manager", "None"]
+            choices: ["Engineer", "Intern", "Manager", "Finished"]
         }
     )
     .then(({ employee }) => {
@@ -29,12 +30,16 @@ myEmployees.prototype.promptUser = function() {
         } else if (employee === "Manager"){
             this.promptManager();
         } else {
-            // write & copy file
+            writeFile(createCard(this.employee));
+            copyFile();
+            console.log("ready");
         }
     })
 };
 
+
 new myEmployees().promptUser();
+
 
 const engineerQuestions = [
     {
@@ -90,6 +95,7 @@ const engineerQuestions = [
         }
     }
 ];
+
 
 myEmployees.prototype.promptEngineer = function() {
     inquirer.prompt(engineerQuestions)
@@ -156,6 +162,7 @@ const internQuestions = [
     }
 ];
 
+
 myEmployees.prototype.promptIntern = function() {
     inquirer.prompt(internQuestions)
     .then(({ name, id, email, school}) => {
@@ -164,7 +171,6 @@ myEmployees.prototype.promptIntern = function() {
         this.promptUser();
     })
 };
-
 
 
 const managerQuestions = [
@@ -226,6 +232,7 @@ const managerQuestions = [
     }
 ];
 
+
 myEmployees.prototype.promptManager = function() {
     inquirer.prompt(managerQuestions)
     .then(({ name, id, email, office}) => {
@@ -234,3 +241,39 @@ myEmployees.prototype.promptManager = function() {
         this.promptUser();
     })
 };
+
+const writeFile = pageHTML => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/index.html', pageHTML, err=>{
+            //if there's an error, reject the Promise and send the error to the catch method
+            if (err){
+                reject(err);
+                return;
+            }
+            //if resolves, send successful data to then method
+            resolve({
+                ok: true,
+                message:"File created!"
+            });
+        });
+    });
+  };
+  
+  const copyFile=()=>{
+    return new Promise((resolve, reject)=>{
+        fs.copyFile('./dist/style.css', './dist/index.html', err => {
+            //if there's an error, reject the Promise and send the error to the catch method
+            if (err){
+                reject(err);
+                return;
+            }
+            //if resolves, send successful data to then method
+            resolve({
+                ok: true,
+                message:"Stylesheet created!"
+            });
+        });
+    });
+  };
+  
+module.exports= {writeFile, copyFile};

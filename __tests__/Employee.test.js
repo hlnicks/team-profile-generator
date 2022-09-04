@@ -1,3 +1,4 @@
+// test to make sure employee function works
 const Employee = require("../lib/Employee");
 
 test("create employee test", () => {

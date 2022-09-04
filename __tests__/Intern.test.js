@@ -1,3 +1,4 @@
+// test to make sure intern function works
 const Intern = require("../lib/intern")
 
 test("create intern test", () => {

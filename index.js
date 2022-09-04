@@ -12,7 +12,7 @@ function myEmployees() {
     this.manager;
 }
 
-
+// employee questions
 myEmployees.prototype.promptUser = function() {
     inquirer.prompt(
         {
@@ -37,7 +37,7 @@ myEmployees.prototype.promptUser = function() {
     })
 };
 
-
+// engineer questions
 const engineerQuestions = [
     {
         type: "input",
@@ -93,7 +93,7 @@ const engineerQuestions = [
     }
 ];
 
-
+// intern questions
 const internQuestions = [
     {
         type: "input",
@@ -149,7 +149,7 @@ const internQuestions = [
     }
 ];
 
-
+// manager questions
 const managerQuestions = [
     {
         type: "input",
@@ -209,7 +209,7 @@ const managerQuestions = [
     }
 ];
 
-
+// runs engineer questions when 'engineer' is selected
 myEmployees.prototype.promptEngineer = function() {
     inquirer.prompt(engineerQuestions)
     .then(({ name, id, email, username }) => {
@@ -219,7 +219,7 @@ myEmployees.prototype.promptEngineer = function() {
     })
 };
 
-
+// runs intern questions when 'intern' is selected
 myEmployees.prototype.promptIntern = function() {
     inquirer.prompt(internQuestions)
     .then(({ name, id, email, school}) => {
@@ -230,6 +230,7 @@ myEmployees.prototype.promptIntern = function() {
 };
 
 
+// runs manager questions when 'manager' is selected
 myEmployees.prototype.promptManager = function() {
     inquirer.prompt(managerQuestions)
     .then(({ name, id, email, office}) => {

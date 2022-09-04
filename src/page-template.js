@@ -3,6 +3,7 @@ function createCard (employeeList) {
     for (var i =0; i < employeeList.length; i++) {
         let employee = employeeList[i];
         let position = employee.getPosition();
+        // creates engineer card
         if (position === "Engineer") {
             cardHtml += `
             <div id="engineer" class="card border-dark" style="width: 18rem;">
@@ -17,6 +18,7 @@ function createCard (employeeList) {
                     <p><span class="info">Github:</span> <a href="https://github.com/${employee.username}" class="text-decoration-none" target="_blank">${employee.username}</a></p>
                 </div>
             </div>`
+        // creates intern card
         } else if (position === "Intern") {
             cardHtml += `
             <div id="intern" class="card border-dark" style="width: 18rem;">
@@ -31,6 +33,7 @@ function createCard (employeeList) {
                 <p><span class="info">School:</span> ${employee.school}</p>
                 </div>
             </div>`
+        // creates manager card
         } else {
             cardHtml += `
             <div id="manager" class="card border-dark" style="width: 18rem;">
@@ -47,6 +50,7 @@ function createCard (employeeList) {
             </div>`
         };
     }
+    // overall html, employee type will be populated in {cardHtml}
     let pageHTML = `
     <!DOCTYPE html>
     <html lang="en">
@@ -71,7 +75,7 @@ function createCard (employeeList) {
         </main>
     </body>
     </html>`
-    
+
     return pageHTML;
 };
 

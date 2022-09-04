@@ -1,3 +1,4 @@
+// test to make sure manager function works
 const Manager = require("../lib/manager")
 
 test("create manager test", () => {
